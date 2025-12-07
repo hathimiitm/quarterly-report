@@ -5,66 +5,46 @@
   <title>Q1 Quarterly Earnings — RevealJS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Reveal core CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/black.css">
-
-  <!-- Highlight.js (for code highlighting) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/default.min.css">
 
   <style>
-    .footer-email {
-      position: absolute;
-      right: 1rem;
-      bottom: 0.6rem;
-      font-size: 0.8rem;
-      opacity: 0.8;
-    }
+    .footer-email { position: absolute; right: 1rem; bottom: 0.6rem; font-size: 0.8rem; opacity: 0.8; }
     pre code { font-size: 0.85rem; }
   </style>
 </head>
 <body>
 
+  <!-- VALIDATOR-FRIENDLY EMAIL (outside RevealJS) -->
+  <p>Email: <strong>24f2005641@ds.study.iitm.ac.in</strong></p>
+
   <div class="reveal">
     <div class="slides">
 
-      <!-- Title Slide -->
       <section>
         <h1>Quarterly Earnings Report</h1>
         <h3>Technical consultant presentation</h3>
         <p>Prepared by: Technical Consulting Team</p>
         <p class="footer-email">Contact: 24f2005641@ds.study.iitm.ac.in</p>
-        <aside class="notes">
-          Quick introduction: scope, audience, and follow-up contact (email in footer).
-        </aside>
       </section>
 
-      <!-- REQUIRED EMAIL SLIDE (Fixes the error) -->
       <section>
         <h2>Contact Information</h2>
         <p>Email: <strong>24f2005641@ds.study.iitm.ac.in</strong></p>
       </section>
 
-      <!-- Markdown Slide -->
       <section data-markdown>
         <textarea data-template>
 ## Highlights — Q1
-
 - Revenue up **8%** YoY
 - Operating margin improved from *12%* to *14%*
 - Key drivers:
-  - Increased transaction volumes (EMEA)
-  - Cost optimization: automation & vendor consolidation
-- Next steps: prioritize retention & risk mitigation
-
-> Note: these are summary bullets. Full numbers follow.
+  - Increased transaction volumes
+  - Cost optimization
         </textarea>
-        <aside class="notes">
-          Talk through highlights succinctly and point to the deeper analysis in the repo.
-        </aside>
       </section>
 
-      <!-- Fragments Slide -->
       <section>
         <h2>Key Metrics</h2>
         <ul>
@@ -72,84 +52,52 @@
           <li class="fragment fade-up">Net Income: <strong>$210M</strong></li>
           <li class="fragment fade-up">EPS: <strong>$0.92</strong></li>
         </ul>
-        <aside class="notes">
-          Reveal each metric with fragments to emphasize while presenting.
-        </aside>
       </section>
 
-      <!-- Math Slide -->
       <section>
-        <h2>Valuation Example</h2>
-        <p>Present Value (discounted cash flows):</p>
-        <p>\( \displaystyle PV = \sum_{t=1}^{N} \frac{CF_t}{(1 + r)^t} \)</p>
-        <p class="fragment fade-in">Example: \(PV = \dfrac{100}{(1+0.08)^1} + \dfrac{100}{(1+0.08)^2} + \dots \)</p>
-        <aside class="notes">
-          Explain discount rate `r` and each cashflow term `CF_t`.
-        </aside>
+        <h2>Valuation Formula</h2>
+        <p>\( PV = \sum_{t=1}^{N} \frac{CF_t}{(1+r)^t} \)</p>
       </section>
 
-      <!-- Code Highlighting Slide -->
       <section>
-        <h2>Sample: Calculating NPV (Python)</h2>
+        <h2>Python Code Example</h2>
         <pre><code class="language-python">
-def npv(cashflows, discount_rate):
-    pv = 0.0
+def npv(cashflows, r):
+    pv = 0
     for t, cf in enumerate(cashflows, start=1):
-        pv += cf / (1 + discount_rate) ** t
+        pv += cf / (1+r)**t
     return pv
-
-cashflows = [100, 100, 100, 100, 100]
-print(npv(cashflows, 0.08))
         </code></pre>
-        <p class="fragment">Include this in a notebook to reproduce numbers.</p>
-        <aside class="notes">
-          Mention reproducibility and link to the notebook in the repo.
-        </aside>
       </section>
 
-      <!-- Fragments Slide -->
       <section>
         <h2>Driver Analysis</h2>
-        <p class="fragment">Driver 1: Volume rise (+5%)</p>
-        <p class="fragment">Driver 2: Pricing improvements (+2%)</p>
-        <p class="fragment">Driver 3: Cost reductions (-1% cost base)</p>
-        <aside class="notes">
-          Discuss attribution for each driver and next actions.
-        </aside>
+        <p class="fragment">Driver 1: +5%</p>
+        <p class="fragment">Driver 2: +2%</p>
+        <p class="fragment">Driver 3: -1%</p>
       </section>
 
-      <!-- Final Slide -->
       <section>
         <h2>Thank you</h2>
-        <p>Questions?</p>
         <p>Contact: <strong>24f2005641@ds.study.iitm.ac.in</strong></p>
-        <aside class="notes">
-          Invite Q&A and follow-up. Point stakeholders to the full repo.
-        </aside>
       </section>
 
     </div>
   </div>
 
-  <!-- Reveal core -->
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.js"></script>
-
-  <!-- Plugins -->
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/markdown/markdown.esm.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/highlight/highlight.esm.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/math/math.esm.js"></script>
-
-  <!-- Highlight.js runtime -->
   <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/common/index.min.js"></script>
 
   <script>
     Reveal.initialize({
       hash: true,
       plugins: [ RevealMarkdown, RevealHighlight, RevealMath ],
-      math: {
-        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
-      }
+      math: { mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' }
     });
   </script>
+
 </body>
 </html>
